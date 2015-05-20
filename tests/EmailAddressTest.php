@@ -5,7 +5,7 @@ namespace Gamajo\EmailAddress;
 class EmailAddressTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers            \Gamajo\EmailAddress::__construct
+     * @covers            \Gamajo\EmailAddress\EmailAddress::__construct
      * @expectedException \InvalidArgumentException
      */
     public function testCannotBeConstructedFromInvalidEmailAddress()
@@ -14,7 +14,7 @@ class EmailAddressTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Gamajo\EmailAddress::__construct
+     * @covers \Gamajo\EmailAddress\EmailAddress::__construct
      * @dataProvider emailAddresses
      */
     public function testCanBeConstructedFromValidEmailAddress($address)
@@ -25,7 +25,8 @@ class EmailAddressTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Gamajo\EmailAddress::__construct
+     * @covers \Gamajo\EmailAddress\EmailAddress::__construct
+     * @covers \Gamajo\EmailAddress\EmailAddress::getLocalPart
      * @dataProvider emailAddresses
      */
     public function testEmailAddressLocalPart($address, $localpart, $domain)
@@ -39,7 +40,8 @@ class EmailAddressTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Gamajo\EmailAddress::__construct
+     * @covers \Gamajo\EmailAddress\EmailAddress::__construct
+     * @covers \Gamajo\EmailAddress\EmailAddress::getDomain
      * @dataProvider emailAddresses
      */
     public function testEmailAddressDomain($address, $localpart, $domain)
