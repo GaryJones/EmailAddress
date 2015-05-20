@@ -1,0 +1,23 @@
+{
+    "name": "gamajo/email-address",
+    "description": "Value Object representing an email address.",
+    "keywords": ["email address"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gary Jones",
+            "email": "code@gamajo.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.6"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }
+}

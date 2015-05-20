@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         bootstrap="vendor/autoload.php"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutTodoAnnotatedTests="true"
+         checkForUnintentionallyCoveredCode="true"
+         forceCoversAnnotation="true"
+         verbose="true">
+    <testsuites>
+        <testsuite name="Money">
+            <directory suffix="Test.php">tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../src</directory>
+        </whitelist>
+    </filter>
+</phpunit>
+
