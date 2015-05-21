@@ -54,7 +54,8 @@ class EmailAddressTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function emailAddresses() {
+    public function emailAddresses()
+    {
         return [
             ['me@example.com', 'me', 'example.com'],
             ['"S@m"@example.com', '"S@m"', 'example.com'],
