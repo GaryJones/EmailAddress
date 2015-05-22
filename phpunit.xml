@@ -8,7 +8,7 @@
          forceCoversAnnotation="true"
          verbose="true">
     <testsuites>
-        <testsuite name="Money">
+        <testsuite name="EmailAddress">
             <directory suffix="Test.php">tests</directory>
         </testsuite>
     </testsuites>
