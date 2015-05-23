@@ -5,6 +5,7 @@
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutTodoAnnotatedTests="true"
          checkForUnintentionallyCoveredCode="true"
+         colors="true"
          forceCoversAnnotation="true"
          verbose="true">
     <testsuites>
@@ -15,7 +16,7 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">../src</directory>
+            <directory suffix=".php">src</directory>
         </whitelist>
     </filter>
 </phpunit>
