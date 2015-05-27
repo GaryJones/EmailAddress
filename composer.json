@@ -16,8 +16,8 @@
         "phpunit/phpunit": "^4.6"
     },
     "autoload": {
-        "classmap": [
-            "src/"
-        ]
+        "psr-4": {
+            "Gamajo\\EmailAddress\\": "src/"
+        }
     }
 }
