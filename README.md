@@ -27,16 +27,16 @@ use Gamajo\EmailAddress\EmailAddress;
 $e = new EmailAddress('me@example.com');
 
 // Access the EmailAddress object's local-part and domain
-print $e->getLocalPart();
-print PHP_EOL;
-print $e->getDomain();
+echo $e->getLocalPart() . PHP_EOL;
+echo $e->getDomain() . PHP_EOL;
+echo $e . PHP_EOL;
 ```
 
 The code above produces the output shown below:
 
     me
-    
     example.com
+    me@example.com
 
 ## Changes
 
