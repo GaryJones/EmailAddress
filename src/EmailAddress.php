@@ -46,9 +46,7 @@ final class EmailAddress
             );
         }
 
-        $this->address    = $address;
-        $this->localpart = implode(explode('@', $this->address, -1), '@');
-        $this->domain    = str_replace($this->localpart.'@', '', $this->address);
+        $this->address = $address;
     }
 
     /**
@@ -68,6 +66,10 @@ final class EmailAddress
      */
     public function getLocalPart()
     {
+        if (! isset($this->localpart)) {
+            $this->localpart = implode(explode('@', $this->address, -1), '@');
+        }
+
         return $this->localpart;
     }
 
@@ -78,6 +80,10 @@ final class EmailAddress
      */
     public function getDomain()
     {
+        if (! isset($this->domain)) {
+            $this->domain = str_replace($this->localpart.'@', '', $this->address);
+        }
+
         return $this->domain;
     }
 }
