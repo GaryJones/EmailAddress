@@ -4,11 +4,13 @@
 
 Originating from a client project that handled email addresses for their users, but needed to store local-part and domain in separate fields to full address.
 
+Note that this is a dumb value object class. It performs no validation of email addresses. Use https://github.com/egulias/EmailValidator or similar to perform validation.
+
 ## Install
 
 Simply add a dependency on `gamajo/email-address` to your project's `composer.json` file if you use [Composer](http://getcomposer.org/) to manage the dependencies of your project.
 
-Here is a minimal example of a `composer.json` file that just defines a dependency on Money:
+Here is a minimal example of a `composer.json` file that just defines a dependency:
 
     {
         "require": {
@@ -24,12 +26,12 @@ Here is a minimal example of a `composer.json` file that just defines a dependen
 use Gamajo\EmailAddress\EmailAddress;
 
 // Create EmailAddress object
-$e = new EmailAddress('me@example.com');
+$emailAddress = new EmailAddress('me@example.com');
 
 // Access the EmailAddress object's local-part and domain
-echo $e->getLocalPart() . PHP_EOL;
-echo $e->getDomain() . PHP_EOL;
-echo $e . PHP_EOL;
+echo $emailAddress->getLocalPart() . PHP_EOL;
+echo $emailAddress->getDomain() . PHP_EOL;
+echo $emailAddress . PHP_EOL;
 ```
 
 The code above produces the output shown below:

@@ -34,21 +34,12 @@ final class EmailAddress
     /**
      * Receive email address.
      *
-     * @throws \InvalidArgumentException Thrown if email address is not valid.
-     *
      * @param string $address Full email address.
      */
     public function __construct($address)
     {
-        if (! filter_var($address, FILTER_VALIDATE_EMAIL)) {
-            throw new \InvalidArgumentException(
-                sprintf('"%s" is not a valid email', $address)
-            );
-        }
-
-        $this->address    = $address;
-        $this->localpart = implode(explode('@', $this->address, -1), '@');
-        $this->domain    = str_replace($this->localpart.'@', '', $this->address);
+        $this->localpart = implode(explode('@', $address, -1), '@');
+        $this->domain    = str_replace($this->localpart.'@', '', $address);
     }
 
     /**
@@ -56,9 +47,9 @@ final class EmailAddress
      *
      * @return string Full email address
      */
-    public function __toString()
+    public function __toString(): string
     {
-        return $this->address;
+        return $this->localpart . '@' . $this->domain;
     }
 
     /**
@@ -66,7 +57,7 @@ final class EmailAddress
      *
      * @return string Local-part of email address.
      */
-    public function getLocalPart()
+    public function getLocalPart(): string
     {
         return $this->localpart;
     }
@@ -76,7 +67,7 @@ final class EmailAddress
      *
      * @return string Domain of email address.
      */
-    public function getDomain()
+    public function getDomain(): string
     {
         return $this->domain;
     }

@@ -1,64 +1,124 @@
 <?php
+/**
+ * Email address value object tests.
+ *
+ * @package   Gamajo\EmailAddress
+ * @author    Gary Jones
+ * @copyright 2015 Gamajo
+ * @license   MIT
+ */
 
-namespace Gamajo\EmailAddress;
+declare(strict_types=1);
 
-class EmailAddressTest extends \PHPUnit_Framework_TestCase
+namespace Gamajo\EmailAddress\Tests;
+
+use Gamajo\EmailAddress\EmailAddress;
+use PHPUnit\Framework\TestCase;
+
+/**
+ * Class EmailAddressTest.
+ *
+ * @package Gamajo\EmailAddress
+ * @covers \Gamajo\EmailAddress\EmailAddress
+ */
+class EmailAddressTest extends TestCase
 {
     /**
-     * @covers            \Gamajo\EmailAddress\EmailAddress::__construct
-     * @expectedException \InvalidArgumentException
-     */
-    public function testCannotBeConstructedFromInvalidEmailAddress()
-    {
-        new EmailAddress('abc.example.com');
-    }
-
-    /**
-     * @covers \Gamajo\EmailAddress\EmailAddress::__construct
-     * @dataProvider emailAddresses
+     * @dataProvider validEmailAddresses
+     * @dataProvider unusualButValidEmailAddresses
      */
     public function testCanBeConstructedFromValidEmailAddress($address)
     {
-        $e = new EmailAddress($address);
+        $emailAddress = new EmailAddress($address);
 
-        $this->assertInstanceOf('Gamajo\\EmailAddress\\EmailAddress', $e);
+        $this->assertInstanceOf('Gamajo\\EmailAddress\\EmailAddress', $emailAddress);
     }
 
     /**
-     * @covers \Gamajo\EmailAddress\EmailAddress::__construct
-     * @covers \Gamajo\EmailAddress\EmailAddress::getLocalPart
-     * @dataProvider emailAddresses
+     * @dataProvider validEmailAddresses
+     * @dataProvider unusualButValidEmailAddresses
+     *
+     * @param string $address   Full email address.
+     * @param string $localpart Localpart of email address.
+     * @param string $domain    Domain of email address.
      */
-    public function testEmailAddressLocalPart($address, $localpart, $domain)
+    public function testEmailAddressLocalPartIsRetrieved(string $address, string $localpart, string $domain)
     {
-        $a = new EmailAddress($address);
+        $emailAddress = new EmailAddress($address);
 
         $this->assertEquals(
             $localpart,
-            $a->getLocalPart()
+            $emailAddress->getLocalPart()
         );
     }
 
     /**
-     * @covers \Gamajo\EmailAddress\EmailAddress::__construct
-     * @covers \Gamajo\EmailAddress\EmailAddress::getDomain
-     * @dataProvider emailAddresses
+     * Test email address domain is correctly retrieved.
+     *
+     * @dataProvider validEmailAddresses
+     * @dataProvider unusualButValidEmailAddresses
+     *
+     * @param string $address   Full email address.
+     * @param string $localpart Localpart of email address.
+     * @param string $domain    Domain of email address.
      */
-    public function testEmailAddressDomain($address, $localpart, $domain)
+    public function testEmailAddressDomainIsRetrieved(string $address, string $localpart, string $domain)
     {
-        $a = new EmailAddress($address);
+        $emailAddress = new EmailAddress($address);
 
         $this->assertEquals(
             $domain,
-            $a->getDomain()
+            $emailAddress->getDomain()
         );
     }
 
-    public function emailAddresses()
+    /**
+     * Data provider for tests.
+     *
+     * See https://blogs.msdn.microsoft.com/testing123/2009/02/06/email-address-test-cases/.
+     *
+     * @return array
+     */
+    public function validEmailAddresses(): array
     {
         return [
+            // Full email address, localpart of email address, domain of email address.
             ['me@example.com', 'me', 'example.com'],
             ['"S@m"@example.com', '"S@m"', 'example.com'],
+            ['email@domain.com', 'email', 'domain.com'],
+            ['firstname.lastname@domain.com', 'firstname.lastname', 'domain.com'],
+            ['email@subdomain.domain.com', 'email', 'subdomain.domain.com'],
+            ['firstname+lastname@domain.com', 'firstname+lastname', 'domain.com'],
+            ['email@123.123.123.123', 'email', '123.123.123.123'],
+            ['email@[123.123.123.123]', 'email', '[123.123.123.123]'],
+            ['"email"@domain.com', '"email"', 'domain.com'],
+            ['1234567890@domain.com', '1234567890', 'domain.com'],
+            ['email@domain-one.com', 'email', 'domain-one.com'],
+            ['_______@domain.com', '_______', 'domain.com'],
+            ['email@domain.name', 'email', 'domain.name'],
+            ['email@domain.co.jp', 'email', 'domain.co.jp'],
+            ['firstname-lastname@domain.com', 'firstname-lastname', 'domain.com'],
+        ];
+    }
+
+    /**
+     * Data provider for tests.
+     *
+     * See http://codefool.tumblr.com/post/15288874550/list-of-valid-and-invalid-email-addresses.
+     *
+     * @return array
+     */
+    public function unusualButValidEmailAddresses(): array
+    {
+        return [
+            // Full email address, localpart of email address, domain of email address.
+            ['much."more\ unusual"@example.com', 'much."more\ unusual"', 'example.com'],
+            ['very.unusual."@".unusual.com@example.com', 'very.unusual."@".unusual.com', 'example.com'],
+            [
+                'very."(),:;<>[]".VERY."very@\\ "very".unusual@strange.example.com',
+                'very."(),:;<>[]".VERY."very@\\ "very".unusual',
+                'strange.example.com'
+            ],
         ];
     }
 }
