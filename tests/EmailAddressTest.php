@@ -26,12 +26,14 @@ class EmailAddressTest extends TestCase
     /**
      * @dataProvider validEmailAddresses
      * @dataProvider unusualButValidEmailAddresses
+     *
+     * @param string $address Full email address.
      */
-    public function testCanBeConstructedFromValidEmailAddress($address)
+    public function testCanBeConstructedFromValidEmailAddress(string $address)
     {
         $emailAddress = new EmailAddress($address);
 
-        $this->assertInstanceOf('Gamajo\\EmailAddress\\EmailAddress', $emailAddress);
+        static::assertInstanceOf(EmailAddress::class, $emailAddress);
     }
 
     /**
@@ -40,13 +42,12 @@ class EmailAddressTest extends TestCase
      *
      * @param string $address   Full email address.
      * @param string $localpart Localpart of email address.
-     * @param string $domain    Domain of email address.
      */
-    public function testEmailAddressLocalPartIsRetrieved(string $address, string $localpart, string $domain)
+    public function testEmailAddressLocalPartIsRetrieved(string $address, string $localpart)
     {
         $emailAddress = new EmailAddress($address);
 
-        $this->assertEquals(
+        static::assertEquals(
             $localpart,
             $emailAddress->getLocalPart()
         );
@@ -57,16 +58,20 @@ class EmailAddressTest extends TestCase
      *
      * @dataProvider validEmailAddresses
      * @dataProvider unusualButValidEmailAddresses
+     * @noinspection PhpUnusedParameterInspection
      *
      * @param string $address   Full email address.
      * @param string $localpart Localpart of email address.
      * @param string $domain    Domain of email address.
      */
-    public function testEmailAddressDomainIsRetrieved(string $address, string $localpart, string $domain)
-    {
+    public function testEmailAddressDomainIsRetrieved(
+        string $address,
+        /** @noinspection PhpUnusedParameterInspection */ string $localpart,
+        string $domain
+    ) {
         $emailAddress = new EmailAddress($address);
 
-        $this->assertEquals(
+        static::assertEquals(
             $domain,
             $emailAddress->getDomain()
         );

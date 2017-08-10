@@ -1,26 +1,22 @@
 <?php
 /**
- * Email address value object.
+ * Email address value object
  *
  * @package   Gamajo\EmailAddress
  * @author    Gary Jones
- * @link      http://github.com/GaryJones/EmailAddress
- * @copyright 2015 Gary Jones, Gamajo Tech
+ * @copyright 2015 Gamajo
  * @license   MIT
  */
+
+declare(strict_types=1);
 
 namespace Gamajo\EmailAddress;
 
 /**
- * Value Object that represents an email address.
+ * Value object that represents an email address.
  */
 final class EmailAddress
 {
-    /**
-     * @var string
-     */
-    private $address;
-
     /**
      * @var string
      */
