@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2603bb1c4714e5bea2e2654e2707e123",
+    "content-hash": "b9e7b2233a5eab0a2a516f344310d705",
     "packages": [],
     "packages-dev": [
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
-            "version": "v0.3.2",
+            "version": "v0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DealerDirect/phpcodesniffer-composer-installer.git",
-                "reference": "e9ce700df1e7a539f6fae743f6c5c3392da7eb59"
+                "reference": "b437eb358b5e592668502a79d95c6d18f8c41ee8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DealerDirect/phpcodesniffer-composer-installer/zipball/e9ce700df1e7a539f6fae743f6c5c3392da7eb59",
-                "reference": "e9ce700df1e7a539f6fae743f6c5c3392da7eb59",
+                "url": "https://api.github.com/repos/DealerDirect/phpcodesniffer-composer-installer/zipball/b437eb358b5e592668502a79d95c6d18f8c41ee8",
+                "reference": "b437eb358b5e592668502a79d95c6d18f8c41ee8",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "stylecheck",
                 "tests"
             ],
-            "time": "2017-03-29T14:01:05+00:00"
+            "time": "2017-08-01T12:43:41+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -1652,17 +1652,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wimg/PHPCompatibility.git",
-                "reference": "5274e1860603ffc1edabd1254a849bd0959cfe8a"
+                "reference": "f02e69589bbc4dbd89290160a862a64ec1372a7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wimg/PHPCompatibility/zipball/5274e1860603ffc1edabd1254a849bd0959cfe8a",
-                "reference": "5274e1860603ffc1edabd1254a849bd0959cfe8a",
+                "url": "https://api.github.com/repos/wimg/PHPCompatibility/zipball/f02e69589bbc4dbd89290160a862a64ec1372a7f",
+                "reference": "f02e69589bbc4dbd89290160a862a64ec1372a7f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3",
-                "squizlabs/php_codesniffer": "^2.2 || ^3.0.1"
+                "squizlabs/php_codesniffer": "^2.2 || ^3.0.2"
             },
             "conflict": {
                 "squizlabs/php_codesniffer": "2.6.2"
@@ -1671,7 +1671,7 @@
                 "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0"
             },
             "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "*"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.1"
             },
             "type": "phpcodesniffer-standard",
             "autoload": {
@@ -1696,7 +1696,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2017-07-31T12:42:36+00:00"
+            "time": "2017-08-02T17:33:35+00:00"
         }
     ],
     "aliases": [],

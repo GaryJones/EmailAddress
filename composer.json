@@ -16,7 +16,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^6.2",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4",
         "object-calisthenics/phpcs-calisthenics-rules": "^2",
         "wimg/php-compatibility": "dev-master"
     },
@@ -29,5 +29,11 @@
         "psr-4": {
             "Gamajo\\EmailAddress\\Tests\\": "tests/"
         }
-    }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "install-codestandards": [
+            "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+      ]
+  }
 }
