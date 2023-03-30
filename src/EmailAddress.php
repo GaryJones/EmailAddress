@@ -34,7 +34,7 @@ final class EmailAddress
      */
     public function __construct($address)
     {
-        $this->localpart = implode(explode('@', $address, -1), '@');
+        $this->localpart = implode('@', explode('@', $address, -1));
         $this->domain    = str_replace($this->localpart.'@', '', $address);
     }
 
