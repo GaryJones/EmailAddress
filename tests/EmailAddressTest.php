@@ -84,7 +84,7 @@ class EmailAddressTest extends TestCase
      *
      * @return array
      */
-    public function validEmailAddresses(): array
+    public static function validEmailAddresses(): array
     {
         return [
             // Full email address, localpart of email address, domain of email address.
@@ -113,7 +113,7 @@ class EmailAddressTest extends TestCase
      *
      * @return array
      */
-    public function unusualButValidEmailAddresses(): array
+    public static function unusualButValidEmailAddresses(): array
     {
         return [
             // Full email address, localpart of email address, domain of email address.
