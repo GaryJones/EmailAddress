@@ -5,7 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.2] - 2023-04-03
+### Fixed
+- Reverse parameters of the explode function by @jairoprez in https://github.com/GaryJones/EmailAddress/pull/3
+
+### Added
+- Support for PHP 8
+- Support for PHPUnit 7-10.
+- Support for Composer 2.2.
+
+### Changed
+- Refreshed Composer packages and PHPCS configuration.
 
 ## [1.0.1] - 2018-01-13
 ### Removed
@@ -23,6 +33,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/GaryJones/EmailAddress/compare/1.0.1...HEAD
+[1.0.2]: https://github.com/GaryJones/EmailAddress/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/GaryJones/EmailAddress/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/GaryJones/EmailAddress/compare/0.1.0...1.0.0
